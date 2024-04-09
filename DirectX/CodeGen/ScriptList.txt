@@ -1,0 +1,11 @@
+CBackgroundScript
+CDebugScript
+CMainCameraScript
+CMathScript
+CMissileScript
+CMonsterScript
+CPlayerScript
+CPurpleRoseScript
+CSpikeballGreen
+CSpikeballGreenScript
+CSpikeRoseredScript
