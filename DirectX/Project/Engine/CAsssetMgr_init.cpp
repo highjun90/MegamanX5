@@ -317,6 +317,11 @@ void CAssetMgr::CreateDefaultMaterial()
 	pMtrl->SetShader(FindAsset<CGraphicsShader>(L"Std2DShader"));
 	AddAsset<CMaterial>(L"BackgroundMtrl", pMtrl);
 
+	// BackgroundMagentaMtrl
+	pMtrl = new CMaterial(true);
+	pMtrl->SetShader(FindAsset<CGraphicsShader>(L"BackgroundMagentaShader"));
+	AddAsset<CMaterial>(L"BackgroundMagentaMtrl", pMtrl);
+
 	// TileMapMtrl
 	pMtrl = new CMaterial(true);
 	pMtrl->SetShader(FindAsset<CGraphicsShader>(L"TileMapShader"));

@@ -166,6 +166,9 @@
     <ClInclude Include="CFontMgr.h">
       <Filter>04. Manager\FontMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CBackgroundMgr.h">
+      <Filter>04. Manager\BackgroundMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -320,6 +323,9 @@
     </ClCompile>
     <ClCompile Include="CFontMgr.cpp">
       <Filter>04. Manager\FontMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CBackgroundMgr.cpp">
+      <Filter>04. Manager\BackgroundMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +487,9 @@
     </Filter>
     <Filter Include="05. Level">
       <UniqueIdentifier>{ce7d87df-6750-4122-aeeb-8fe13bef86f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04. Manager\BackgroundMgr">
+      <UniqueIdentifier>{ae4ed550-3e01-4ee2-a3e7-9bafde019092}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

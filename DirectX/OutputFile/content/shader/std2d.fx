@@ -35,7 +35,13 @@ VS_OUT VS_Std2D(VS_IN _in)
 
 float4 PS_Std2D(VS_OUT _in) : SV_Target
 {
+   
     float4 vColor = float4(1.f, 0.f, 1.f, 1.f);
+    
+    //잠깐 디버그용 세줄. ImageDC 관련.
+    //discard;
+    //vColor.xyz = 0;
+    //return vColor;
     
     if (g_vec4_1.w == 3.14f)
         return float4(1.f, 1.f, 0.f, 1.f);

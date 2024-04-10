@@ -32,6 +32,8 @@
 #include <Engine/CPrefab.h>
 #include <Engine/CFSM.h>
 
+//배경 마젠타
+#include <Engine/CBackgroundMgr.h>
 
 // State
 #include "CIdleState.h"
@@ -102,11 +104,12 @@ void CCreateTempLevel::CreateTempLevel()
 
 	pTempLevel->GetLayer(0)->SetName(L"Default");
 	pTempLevel->GetLayer(1)->SetName(L"Background");
-	pTempLevel->GetLayer(2)->SetName(L"Tile");
-	pTempLevel->GetLayer(3)->SetName(L"Player");
-	pTempLevel->GetLayer(4)->SetName(L"Monster");
-	pTempLevel->GetLayer(5)->SetName(L"Light");
-	pTempLevel->GetLayer(6)->SetName(L"Tile");
+	pTempLevel->GetLayer(2)->SetName(L"BackgroundMagenta");
+	pTempLevel->GetLayer(3)->SetName(L"Tile");
+	pTempLevel->GetLayer(4)->SetName(L"Player");
+	pTempLevel->GetLayer(5)->SetName(L"Monster");
+	pTempLevel->GetLayer(6)->SetName(L"Light");
+	pTempLevel->GetLayer(7)->SetName(L"Tile");
 	pTempLevel->GetLayer(31)->SetName(L"UI");
 
 	// ComputeShader 테스트
@@ -194,6 +197,29 @@ void CCreateTempLevel::CreateTempLevel()
 	MainCameraScript->SetBackGround(pObj);
 
 
+	// BackgruondMagenta Object 생성
+	pObj = new CGameObject;
+	pObj->SetName(L"BackGroundMagenta");
+
+	pObj->AddComponent(new CTransform);
+	pObj->AddComponent(new CMeshRender);
+	pObj->AddComponent(new CBackgroundScript);
+
+	pObj->Transform()->SetRelativePos(Vec3(9400.f, 1015.f, 32.f - 2.f));
+	pObj->Transform()->SetRelativeScale(Vec3(6764.f * 3.f, 935.f * 3.f, 1.f));
+
+	pObj->MeshRender()->SetMesh(CAssetMgr::GetInst()->FindAsset<CMesh>(L"RectMesh"));
+	pObj->MeshRender()->SetMaterial(CAssetMgr::GetInst()->FindAsset<CMaterial>(L"BackgroundMagentaMtrl"));
+
+	pTex = CAssetMgr::GetInst()->Load<CTexture>(L"texture\\BackGround_Magenta.bmp", L"texture\\BackGround_Magenta.bmp");
+	pObj->MeshRender()->GetMaterial()->SetTexParam(TEX_PARAM::TEX_0, pTex);
+
+	pTempLevel->AddObject(pObj, L"BackgroundMagenta", false);
+
+	//메인카메라에 백그라운드마젠타 정보(포인터)를 넘겨줌
+	MainCameraScript->SetBackGroundMagenta(pObj);
+
+
 	// Player Object 생성
 	pObj = new CGameObject;
 	pObj->SetName(L"Player");
@@ -222,6 +248,9 @@ void CCreateTempLevel::CreateTempLevel()
 	MainCameraScript->SetMainPlayer(pObj);
 
 	pObj->Animator2D()->Play(L"Zero_IdleRight");
+
+	//배경매니저에 플레이어 포인터 넘겨줌
+	CBackgroundMgr::GetInst()->GetPlayer(pObj);
 
 
 	//Monster Object 생성
@@ -345,10 +374,21 @@ void CCreateTempLevel::CreateTempLevel()
 	pTempLevel->AddObject(pObj, L"Default", false);
 
 	// 충돌 설정
-	CCollisionMgr::GetInst()->LayerCheck(3, 4);
+	CCollisionMgr::GetInst()->LayerCheck(4, 5);
+
+	wstring pLayer1(L"Player");
+
+	CLevel* pCurLevel = CLevelMgr::GetInst()->GetCurrentLevel();
+	//CLayer* pLeftLayer = pCurLevel->GetLayer(L"Player");
+
+	//CCollisionMgr::GetInst()->LayerCheck(L"player", L"Monster");
 	//CCollisionMgr::GetInst()->LayerCheck(4, 4);
 
 	CLevelMgr::GetInst()->ChangeLevel(pTempLevel, LEVEL_STATE::STOP);
 
 	CLevelSaveLoad::SaveLevel(pTempLevel, L"level\\temp.lv");	
+
+
+
+	//LayerCheck(pLeftLayer->GetLayerIdx(), pRightLayer->GetLayerIdx());
 }

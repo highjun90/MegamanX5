@@ -170,6 +170,7 @@ call EngineCopy.bat</Command>
     <ClInclude Include="CAnim.h" />
     <ClInclude Include="CAsset.h" />
     <ClInclude Include="CAssetMgr.h" />
+    <ClInclude Include="CBackgroundMgr.h" />
     <ClInclude Include="CBlackboard.h" />
     <ClInclude Include="CCamera.h" />
     <ClInclude Include="CCollider2D.h" />
@@ -228,6 +229,7 @@ call EngineCopy.bat</Command>
     <ClCompile Include="CAsset.cpp" />
     <ClCompile Include="CAssetMgr.cpp" />
     <ClCompile Include="CAsssetMgr_init.cpp" />
+    <ClCompile Include="CBackgroundMgr.cpp" />
     <ClCompile Include="CBlackboard.cpp" />
     <ClCompile Include="CCamera.cpp" />
     <ClCompile Include="CCollider2D.cpp" />

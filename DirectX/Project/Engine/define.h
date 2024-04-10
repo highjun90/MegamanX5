@@ -91,6 +91,7 @@ enum class CB_TYPE
 	ANIM2D_DATA,
 	GLOBAL_DATA,
 	ANIMATION,	
+	BackgroundMgt_DATA,
 
 	END,
 };

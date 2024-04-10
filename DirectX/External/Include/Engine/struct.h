@@ -166,3 +166,9 @@ struct tGlobalData
 	int		g_Light3DCount;		// 3D ±¤¿ø °³¼ö	
 };
 extern tGlobalData g_global;
+
+struct tBackgroundMgtData
+{
+	int DrawBackgroundMgt;
+	float iPadding[3];
+};

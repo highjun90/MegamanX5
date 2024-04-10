@@ -13,6 +13,7 @@
 #include "CRenderMgr.h"
 #include "CCollisionMgr.h"
 #include "CFontMgr.h"
+#include "CBackgroundMgr.h"
 
 #include "CSound.h"
 
@@ -59,6 +60,7 @@ int CEngine::init(HWND _hWnd, Vec2 _vResolution)
 	CRenderMgr::GetInst()->init();
 	CLevelMgr::GetInst()->init();
 	CFontMgr::GetInst()->init();
+	CBackgroundMgr::GetInst()->init();
 
 	return S_OK;
 }
@@ -75,6 +77,7 @@ void CEngine::progress()
 	// Level Update	
 	CLevelMgr::GetInst()->tick();
 	CTimeMgr::GetInst()->render();
+	CBackgroundMgr::GetInst()->render();
 
 	// GC
 	CGC::GetInst()->tick();

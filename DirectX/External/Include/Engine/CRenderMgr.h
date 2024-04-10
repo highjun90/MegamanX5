@@ -18,6 +18,7 @@ private:
     vector<CCamera*>        m_vecCam;
     CCamera*                m_EditorCam;
 
+
     Ptr<CTexture>           m_PostProcessTex;
 
     CStructuredBuffer*      m_Light2DBuffer;

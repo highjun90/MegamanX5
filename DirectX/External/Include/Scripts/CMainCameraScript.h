@@ -10,7 +10,7 @@ private:
 
     CGameObject* MainPlayer;
     CGameObject* BackGround;
-   
+    CGameObject* BackGroundMagenta;
 
     bool followPlayer;
 
@@ -25,6 +25,7 @@ public:
 
     void SetMainPlayer(CGameObject* _MainPlayer) { MainPlayer = _MainPlayer; }
     void SetBackGround(CGameObject* _MainPlayer) { BackGround = _MainPlayer; }
+    void SetBackGroundMagenta(CGameObject* _MainPlayer) { BackGroundMagenta = _MainPlayer; }
 
     void SetFollowPlayer(bool _follow) { followPlayer = _follow; }
     bool GetFollowPlayer() { return followPlayer; }
